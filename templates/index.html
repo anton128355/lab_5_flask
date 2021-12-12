@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1><b> {% block title %} Каталог автомобілів {% endblock %} </b></h1>
+    {% for car in cars %}
+        <h2>{{ car['brand'] }}</h2>
+        <h2>{{ car['model'] }}</h2>
+        <h2>{{ car['transmission'] }}</h2>
+        <h2>{{ car['year'] }}</h2>
+        <h2>{{ car['power'] }}</h2>
+        <h2>{{ car['fuel'] }}</h2>
+        <h2>{{ car['mileage'] }}</h2>
+        <h2>{{ car['price'] }}</h2>
+        <img src="{{url_for('static', filename=car['photo'])}}" width="500" height="350">
+
+        <a href="{{ url_for('car', car_id=car['id']) }}">
+            <h2>Дізнатися подробиці</h2>
+        </a>
+
+
+        <span class="badge badge-primary">{{ car['created'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}
