@@ -1,24 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1><b> {% block title %} Каталог автомобілів {% endblock %} </b></h1>
     {% for car in cars %}
-        <h2>{{ car['brand'] }}</h2>
-        <h2>{{ car['model'] }}</h2>
-        <h2>{{ car['transmission'] }}</h2>
-        <h2>{{ car['year'] }}</h2>
-        <h2>{{ car['power'] }}</h2>
-        <h2>{{ car['fuel'] }}</h2>
-        <h2>{{ car['mileage'] }}</h2>
-        <h2>{{ car['price'] }}</h2>
-        <img src="{{url_for('static', filename=car['photo'])}}" width="500" height="350">
-
-        <a href="{{ url_for('car', car_id=car['id']) }}">
-            <h2>Дізнатися подробиці</h2>
-        </a>
-
-
+        <div class="card" style="width: 18rem;">
+            <img src="{{url_for('static', filename=car['photo'])}}" class="card-img-top">
+            <div class="card-body">
+              <p class="card-text">{{ car['brand'] }}</p>
+              <p class="card-text">{{ car['model'] }}</p>
+              <p class="card-text">{{ car['transmission'] }}</p>
+              <p class="card-text">{{ car['year'] }}</p>
+              <p class="card-text">{{ car['power'] }}</p>
+              <p class="card-text">{{ car['fuel'] }}</p>
+              <p class="card-text">{{ car['mileage'] }}</p>
+              <p class="card-text">{{ car['price'] }}</p>
+              <a href="{{ url_for('car', car_id=car['id']) }}" class="btn btn-primary bg-danger">Дізнатися подробиці</a>
+            </div>
+          </div>
         <span class="badge badge-primary">{{ car['created'] }}</span>
-        <hr>
     {% endfor %}
+
 {% endblock %}

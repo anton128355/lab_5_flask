@@ -1,6 +1,5 @@
-h1 {
-    border: 2px #eee solid;
-    color: brown;
-    text-align: center;
-    padding: 10px;
+.test_class {
+    background-color: red;
+    height: 100px;
+    width: 100%;
 }
